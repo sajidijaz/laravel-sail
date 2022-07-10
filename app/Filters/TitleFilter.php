@@ -6,6 +6,6 @@ class TitleFilter
 {
     public function filter($builder, $value)
     {
-        return $builder->orWhere('title', 'like', "%{$value}%");
+        return $builder->where('title', 'like', "%{$value}%");
     }
 }
