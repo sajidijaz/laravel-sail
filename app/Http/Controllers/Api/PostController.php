@@ -26,7 +26,7 @@ class PostController extends ApiController
         return $this->successResponse($post, 200, 'Post Created Successfully');
     }
 
-    public function show(Post $post)
+    public function show(Post $post): JsonResponse
     {
         return $this->successResponse($post);
     }

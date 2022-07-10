@@ -23,10 +23,10 @@ abstract class AbstractFilter
     protected function getFilters(): array
     {
         $requestFilter = $this->request->only('filter');
-
-//        dd(array_keys($requestFilter));
-
-//        return $requestFilter;
+        if(!empty($requestFilter['filter'])) {
+            return array_intersect_key($requestFilter['filter'], $this->filters);
+        }
+        return [];
 //        return array_filter($this->request->only(array_keys($this->filters)));
     }
 

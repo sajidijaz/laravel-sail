@@ -2,10 +2,10 @@
 
 namespace App\Filters;
 
-class TitleFilter
+class UserIdFilter
 {
     public function filter($builder, $value)
     {
-        return $builder->orWhere('title', 'like', "%{$value}%");
+        return $builder->where('user_id', '=', $value);
     }
 }
