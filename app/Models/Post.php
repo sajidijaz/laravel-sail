@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Filters\PostFilter;
+use App\Filters\Posts\PostFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @mixin

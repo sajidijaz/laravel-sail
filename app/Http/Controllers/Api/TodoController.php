@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\StoreTodoRequest;
+use App\Http\Requests\TodoCollectionRequest;
 use App\Http\Resources\TodoResource;
 use App\Models\Todo;
 use Illuminate\Http\JsonResponse;
@@ -12,18 +13,10 @@ use Illuminate\Http\Request;
 class TodoController extends ApiController
 {
 
-    public function index(Request $request): JsonResponse
+    public function index(TodoCollectionRequest $request): JsonResponse
     {
-        $request->validate([
-                               'page' => 'filled|integer|min:1',
-                               'limit' => 'filled|integer|between:1,100',
-                           ]);
         $limit = $request->get('limit');
-        if ($limit) {
-            $collection = Todo::simplePaginate($limit);
-        } else {
-            $collection = Todo::all();
-        }
+        $collection = !empty($limit) ? Todo::filter($request)->simplePaginate($limit) : Todo::filter($request)->get();
         return $this->successResponse(TodoResource::collection($collection)->response()->getData());
     }
 

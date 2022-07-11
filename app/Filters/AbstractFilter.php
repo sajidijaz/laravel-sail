@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 abstract class AbstractFilter
 {
     protected array $filters = [];
+    protected string $path;
 
     public function __construct(protected Request $request) {}
 
@@ -27,7 +28,6 @@ abstract class AbstractFilter
             return array_intersect_key($requestFilter['filter'], $this->filters);
         }
         return [];
-//        return array_filter($this->request->only(array_keys($this->filters)));
     }
 
     protected function resolveFilter($filter)

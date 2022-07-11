@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Filters;
+namespace App\Filters\Posts;
+
+use App\Filters\AbstractFilter;
 
 class PostFilter extends AbstractFilter
 {
     protected array $filters = [
-        'user_id' => UserIdFilter::class,
+        'userId' => UserIdFilter::class,
         'title' => TitleFilter::class,
         'body' => BodyFilter::class,
     ];

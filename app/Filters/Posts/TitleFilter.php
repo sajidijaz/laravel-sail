@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filters;
+namespace App\Filters\Posts;
 
 class TitleFilter
 {

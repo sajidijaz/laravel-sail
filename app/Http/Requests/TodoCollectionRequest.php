@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostCollectionRequest extends FormRequest
+class TodoCollectionRequest extends FormRequest
 {
-
     public function authorize(): bool
     {
         return true;
@@ -22,8 +21,9 @@ class PostCollectionRequest extends FormRequest
                 'array',
             ],
             'filter.userId' => 'filled|integer|min:1',
-            'filter.body' => 'filled',
             'filter.title' => 'filled',
+            'filter.status' => 'filled|in:pending,completed',
+            'filter.dueOn' => 'filled|date|date_format:Y-m-d',
         ];
     }
 
@@ -31,9 +31,9 @@ class PostCollectionRequest extends FormRequest
     {
         return [
             'filter.userId' => 'filter user id',
-            'filter.body' => 'filter body',
+            'filter.dueOn' => 'filter due on',
             'filter.title' => 'filter title',
+            'filter.status' => 'filter status',
         ];
     }
-
 }
