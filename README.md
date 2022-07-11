@@ -71,7 +71,7 @@ To start all of the Docker containers in the background, you may start Sail in "
 sail up -d
 ```
 
-To stop all of the containers, you may simply press Control + C to stop the container's execution. Or, if the containers are running in the background, you may use the stop command:
+To stop all the containers, you may simply press Control + C to stop the container's execution. Or, if the containers are running in the background, you may use the stop command:
 
 ```bash
 sail stop
@@ -83,3 +83,6 @@ sail stop
 
 - After installing a new Laravel application, execute the `vendor/bin/phpunit` or `sail artisan test` commands to run your tests.
 
+## API Endpoint Documentation
+
+You can check the endpoint's documentation [here](https://documenter.getpostman.com/view/4041071/UzJQquCL).
